@@ -1,5 +1,9 @@
 # PID
-A simple PID library for use with Arduino or other C++ applications.
+A simple PID library for use with Arduino.
+Download as zip and add the library as zip file in the library manager.
+This library is based on nicholastmosher/PID project. I have just modifyed it to fit
+directly into the arduino envarioment.
+Example files comes soon.
 
 A PID Controller is a method of system control in which a correctional output
 is generated to guide the system toward a desired setpoint (aka `target`).
