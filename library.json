@@ -1,0 +1,12 @@
+{
+  "name": "PID",
+  "keywords": "PID",
+  "description": "PID calculation lib",
+  "frameworks": "arduino",
+  "platforms":
+  [
+    
+    "atmelavr",
+    "teensy"
+  ]
+}
