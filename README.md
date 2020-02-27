@@ -195,6 +195,50 @@ myPIDController.setFeedbackWrapped(false);
 myPIDController.setFeedbackWrapped(true);
 ```
 
+## Input bounds
+
+To limit the value input use:
+
+```cpp
+myPIDController.setInputBounds(<min>,<max>);
+```
+
+and:
+
+```cpp
+myPIDController.setInputBounded(bool bounded);
+```
+
+to turn it off and on again. Setting min and max turns it on!
+This is a simple windowing function
+To discard spyrius data you must program this in data source function.
+
+## Output bounds
+
+To limit the value out use:
+
+```cpp
+myPIDController.setOutputBounds(<min>,<max>);
+```
+
+and:
+
+```cpp
+myPIDController.setOutputBounded(bool bounded);
+```
+
+to turn it off and on again. Setting min and max turns it on!
+This is a simple windowing function.
+
+## Changing calculation
+
+```cpp
+myPIDController.setP(double p); // sets P Gain
+myPIDController.setI(double i); // sets I Gain
+myPIDController.setD(double d); // sets D Gain
+myPIDController.setPID(double p,double i,double d); // Sets PID gains. 
+```
+
 ## Calculation Transparency
 
 This library provides many getter functions that will allow insight into the
