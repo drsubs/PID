@@ -164,6 +164,38 @@ unsigned long timeFunction()
 myPIDController.registerTimeFunction(timeFunction);
 ```
 
+## The running loop
+
+Arduino exampel: A motor is connected to a potentiometer(with a gear), by changing the target, you change 
+the position
+
+```cpp
+int readPotentiometer() {
+   return analogRead(A0);
+}
+void setPower(int v) {
+   if(v < 0) {
+      digitalWrite(D1,HIGH);   // Direction
+   } else {
+      digitalWrite(D1,LOW);
+   }
+   analogWrite(D2,abs(v));    // Power as pwm.
+}
+
+PIDController<int> myPIDController(20,2.0,40.0);
+
+void setup() {
+   myPIDController.setMaxIntegralCumulation(50.0);
+   myPIDController.setOutputBounds(-255,255);
+   myPIDController.setTarget(510);
+}
+
+void loop() {
+   changeTarget();
+   myPIDController.thick();
+}
+```
+
 ## Feedback Wrap
 
 Feedback wrap is an optional feature that can cause the number line of the input
@@ -185,7 +217,7 @@ accurately represent the physical state of the system.
 To setup Feedback Wrap (this automatically enables it as well):
 
 ```cpp
-myPIDController.setFeedbackWrapBounds(0, 360);
+setMaxIntegralCumulation.setFeedbackWrapBounds(0, 360);
 ```
 
 To disable or re-enable Feedback Wrap:
